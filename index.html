@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Instagram Growth Playbook 2025</title>
-    <!-- Chosen Palette: Calm Harmony with Energetic Accents -->
-    <!-- Application Structure Plan: The application is structured as a non-linear, interactive dashboard or "playbook." This design was chosen over a static report to empower users to explore strategies based on their immediate needs. Key features include: 1) A top navigation for quick access to thematic sections. 2) An "Algorithm Explorer" where users can interactively click on different Instagram surfaces (Feed, Reels) to see their unique ranking signals, making complex information digestible. 3) A "Content Deep Dive" with tabs to directly compare the performance and best practices for Reels, Carousels, and Stories using data-driven charts. 4) A "Trial Reels Lab" that uses a visual flowchart to demystify the feature. This interactive, task-oriented structure enhances understanding and retention more effectively than a linear document. -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: Engagement signal hierarchy (Shares > Saves > Watch Time > Likes). Goal: Compare. Viz: Horizontal Bar Chart (Chart.js). Justification: Clearly visualizes the new ranking of what matters most for growth.
-        - Report Info: Performance metrics for Reels vs. Carousels (Reach, Engagement, Saves). Goal: Compare. Viz: Tab-based interface with Radar Charts (Chart.js). Justification: Allows for a direct, multi-dimensional comparison of each format's strengths and weaknesses, guiding strategic choice.
-        - Report Info: The complex, conditional process of Trial Reels. Goal: Organize/Explain. Viz: HTML/CSS Flowchart. Justification: Simplifies a multi-step process with clear conditional paths (pass/fail), making it easy to understand at a glance.
-        - Report Info: Recommended posting times by day. Goal: Change (over time). Viz: Line Chart (Chart.js). Justification: Effectively shows engagement trends across the week.
-        - Report Info: Distinct ranking signals for Feed, Reels, Stories, etc. Goal: Organize/Inform. Viz: Interactive HTML/CSS Diagram. Justification: Users click a surface to dynamically see its specific signals, promoting active learning over passive reading of a large table.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -120,7 +110,7 @@
             <div class="mt-12 bg-white p-4 sm:p-8 rounded-2xl shadow-lg">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <div class="lg:col-span-1">
-                        <div id="surface-selector" class="flex lg:flex-col justify-center gap-2">
+                        <div id="surface-selector" class="flex flex-col justify-center gap-2">
                             <button data-surface="reels" class="surface-button w-full text-left p-4 rounded-lg transition-all duration-300 font-semibold">
                                  Reels
                                 <span class="block text-sm font-normal text-gray-500">For Discovery & Reach</span>
@@ -154,7 +144,7 @@
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Each content format has a unique role in a successful strategy. Use this interactive comparison to understand where Reels, Carousels, and other formats excel, and how to use them effectively.</p>
             </div>
             <div class="mt-12">
-                <div class="flex justify-center mb-8 border-b border-gray-200">
+                <div class="flex flex-wrap justify-center mb-8 border-b border-gray-200">
                     <button data-format="reels" class="tab-button flex-1 md:flex-none px-6 py-3 font-semibold text-gray-600 transition-colors duration-300">Reels</button>
                     <button data-format="carousels" class="tab-button flex-1 md:flex-none px-6 py-3 font-semibold text-gray-600 transition-colors duration-300">Carousels</button>
                     <button data-format="stories" class="tab-button flex-1 md:flex-none px-6 py-3 font-semibold text-gray-600 transition-colors duration-300">Stories & Images</button>
@@ -392,6 +382,7 @@
                     "<strong>Post Popularity:</strong> The speed and volume of likes, comments, shares, and saves.",
                     "<strong>User Activity in Explore:</strong> Content similar to what you've engaged with in Explore before.",
                     "<strong>Interaction History:</strong> Your past interactions with the creator, even if you don't follow them.",
+                    "<strong>Creator Information:</strong> How often users interacted with account in recent weeks.",
                     "<strong>Relevance:</strong> Keywords, hashtags, and topic matching."
                 ]
             }
@@ -564,3 +555,4 @@
     </script>
 </body>
 </html>
+
