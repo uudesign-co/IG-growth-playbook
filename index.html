@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Instagram Growth Playbook 2025</title>
+    <!-- Chosen Palette: Calm Harmony with Energetic Accents -->
+    <!-- Application Structure Plan: The application is structured as a non-linear, interactive dashboard or "playbook." This design was chosen over a static report to empower users to explore strategies based on their immediate needs. Key features include: 1) A top navigation for quick access to thematic sections. 2) An "Algorithm Explorer" where users can interactively click on different Instagram surfaces (Feed, Reels) to see their unique ranking signals, making complex information digestible. 3) A "Content Deep Dive" with tabs to directly compare the performance and best practices for Reels, Carousels, and Stories using data-driven charts. 4) A "Trial Reels Lab" that uses a visual flowchart to demystify the feature. This interactive, task-oriented structure enhances understanding and retention more effectively than a linear document. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Engagement signal hierarchy (Shares > Saves > Watch Time > Likes). Goal: Compare. Viz: Horizontal Bar Chart (Chart.js). Justification: Clearly visualizes the new ranking of what matters most for growth.
+        - Report Info: Performance metrics for Reels vs. Carousels (Reach, Engagement, Saves). Goal: Compare. Viz: Tab-based interface with Radar Charts (Chart.js). Justification: Allows for a direct, multi-dimensional comparison of each format's strengths and weaknesses, guiding strategic choice.
+        - Report Info: The complex, conditional process of Trial Reels. Goal: Organize/Explain. Viz: HTML/CSS Flowchart. Justification: Simplifies a multi-step process with clear conditional paths (pass/fail), making it easy to understand at a glance.
+        - Report Info: Recommended posting times by day. Goal: Change (over time). Viz: Line Chart (Chart.js). Justification: Effectively shows engagement trends across the week.
+        - Report Info: Distinct ranking signals for Feed, Reels, Stories, etc. Goal: Organize/Inform. Viz: Interactive HTML/CSS Diagram. Justification: Users click a surface to dynamically see its specific signals, promoting active learning over passive reading of a large table.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FDFDFD;
+            --bg-card: #FFFFFF;
+            --text-primary: #1F2937;
+            --text-secondary: #4B5563;
+            --accent-1: #4F46E5;
+            --accent-2: #10B981;
+            --accent-3: #F59E0B;
+            --border-color: #E5E7EB;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.2s, border-bottom-color 0.2s;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-1);
+            border-bottom-color: var(--accent-1);
+        }
+        .tab-button.active {
+            background-color: var(--accent-1);
+            color: white;
+        }
+        .flowchart-node {
+            border: 2px solid var(--border-color);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            background-color: var(--bg-card);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .flowchart-arrow {
+            color: var(--border-color);
+            font-size: 2.5rem;
+            line-height: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="sticky top-0 bg-white/80 backdrop-blur-lg z-50 shadow-sm">
+        <nav class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-gray-800">Growth Playbook</div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#overview" class="nav-link font-semibold text-gray-600 pb-1 border-b-2 border-transparent">Overview</a>
+                    <a href="#algorithm" class="nav-link font-semibold text-gray-600 pb-1 border-b-2 border-transparent">Algorithm</a>
+                    <a href="#formats" class="nav-link font-semibold text-gray-600 pb-1 border-b-2 border-transparent">Formats</a>
+                    <a href="#strategy" class="nav-link font-semibold text-gray-600 pb-1 border-b-2 border-transparent">Strategy</a>
+                    <a href="#trials" class="nav-link font-semibold text-gray-600 pb-1 border-b-2 border-transparent">Trial Reels</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 space-y-16 md:space-y-24">
+        
+        <section id="overview" class="text-center pt-8">
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-4">The 2025 Instagram Growth Playbook</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">An interactive guide to mastering the new AI-driven algorithm and achieving sustainable organic growth.</p>
+        
+            <div class="mt-12">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">What Matters Most in 2025</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-8">Instagram's AI now prioritizes genuine user value over vanity metrics. This chart shows the new hierarchy of engagement signals that drive organic growth and discovery.</p>
+                <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-lg">
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="engagementHierarchyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="algorithm">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Meet the New Algorithm<span class="text-indigo-600">s</span></h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">It's no longer one "algorithm." Instagram uses multiple AI systems tailored to each part of the app. To win, you must understand the unique rules for each surface. Click on a surface below to explore its primary ranking signals.</p>
+            </div>
+
+            <div class="mt-12 bg-white p-4 sm:p-8 rounded-2xl shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-1">
+                        <div id="surface-selector" class="flex lg:flex-col justify-center gap-2">
+                            <button data-surface="reels" class="surface-button w-full text-left p-4 rounded-lg transition-all duration-300 font-semibold">
+                                 Reels
+                                <span class="block text-sm font-normal text-gray-500">For Discovery & Reach</span>
+                            </button>
+                            <button data-surface="feed" class="surface-button w-full text-left p-4 rounded-lg transition-all duration-300 font-semibold">
+                                Feed
+                                <span class="block text-sm font-normal text-gray-500">For Follower Engagement</span>
+                            </button>
+                            <button data-surface="stories" class="surface-button w-full text-left p-4 rounded-lg transition-all duration-300 font-semibold">
+                                Stories
+                                <span class="block text-sm font-normal text-gray-500">For Community Nurturing</span>
+                            </button>
+                            <button data-surface="explore" class="surface-button w-full text-left p-4 rounded-lg transition-all duration-300 font-semibold">
+                                Explore Page
+                                <span class="block text-sm font-normal text-gray-500">For New Account Finding</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-gray-50 p-6 rounded-xl min-h-[300px]">
+                        <h3 id="surface-title" class="text-2xl font-bold mb-4 text-gray-800"></h3>
+                        <ul id="surface-signals" class="space-y-3 text-gray-700">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="formats">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Content Format Deep Dive</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Each content format has a unique role in a successful strategy. Use this interactive comparison to understand where Reels, Carousels, and other formats excel, and how to use them effectively.</p>
+            </div>
+            <div class="mt-12">
+                <div class="flex justify-center mb-8 border-b border-gray-200">
+                    <button data-format="reels" class="tab-button flex-1 md:flex-none px-6 py-3 font-semibold text-gray-600 transition-colors duration-300">Reels</button>
+                    <button data-format="carousels" class="tab-button flex-1 md:flex-none px-6 py-3 font-semibold text-gray-600 transition-colors duration-300">Carousels</button>
+                    <button data-format="stories" class="tab-button flex-1 md:flex-none px-6 py-3 font-semibold text-gray-600 transition-colors duration-300">Stories & Images</button>
+                </div>
+
+                <div id="format-content-container">
+                </div>
+            </div>
+        </section>
+        
+        <section id="strategy">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Your Strategic Growth Pillars</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Sustainable growth is built on a foundation of consistency, community, and data-driven decisions. Explore the key strategies that will amplify your reach and engagement.</p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">The Consistency Advantage</h3>
+                    <p class="text-gray-600 mb-6">Regular posting is a powerful signal to the algorithm. Consistent creators can receive up to <span class="font-bold text-indigo-600">5x more engagement</span> per post. This signals that your account is active and valuable, encouraging wider distribution.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="font-bold text-xl mb-4 text-gray-800">Community is King</h3>
+                    <p class="text-gray-600 mb-6">Move beyond broadcasting. Actively respond to comments and DMs, use interactive stickers, and collaborate with other creators. Building a community signals creator credibility and strengthens relationship history, both key ranking factors.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white p-6 rounded-2xl shadow-lg">
+                <h3 class="font-bold text-xl mb-4 text-center text-gray-800">Finding Your Optimal Posting Times</h3>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8">While general guidelines exist, your best time to post is when *your* audience is most active. Use this chart as a starting point, but always check your Instagram Insights for personalized data.</p>
+                <div class="chart-container h-72 md:h-96">
+                    <canvas id="postingTimeChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="trials">
+            <div class="text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900">The Trial Reels Lab</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Instagram's "Trial Reels" feature is a powerful tool for de-risked experimentation. Understand how it works, why performance is inconsistent, and how to use it to your strategic advantage.</p>
+            </div>
+            <div class="mt-12 bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+                <h3 class="font-bold text-xl mb-6 text-center text-gray-800">The 72-Hour Algorithmic Test</h3>
+                <div class="flex flex-col items-center space-y-2">
+                    <div class="flowchart-node w-full max-w-sm">
+                        <span class="font-semibold">1. Post a Trial Reel</span>
+                        <p class="text-sm text-gray-500">It's shown ONLY to non-followers.</p>
+                    </div>
+                    <div class="flowchart-arrow">↓</div>
+                    <div class="flowchart-node w-full max-w-sm border-indigo-500">
+                        <span class="font-semibold">2. Initial Non-Follower Engagement</span>
+                        <p class="text-sm text-gray-500">Does it get high watch time & shares quickly?</p>
+                    </div>
+                    <div class="w-full max-w-sm grid grid-cols-2 gap-4 mt-2">
+                         <div class="flex flex-col items-center">
+                            <div class="flowchart-arrow">↙</div>
+                            <div class="flowchart-node w-full border-green-500">
+                                <span class="font-bold text-green-700">YES</span>
+                                <p class="text-sm text-gray-500 mt-1">Within 72 hrs, IG auto-posts it to your followers!</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="flowchart-arrow">↘</div>
+                            <div class="flowchart-node w-full border-red-500">
+                                <span class="font-bold text-red-700">NO</span>
+                                <p class="text-sm text-gray-500 mt-1">Stays as a trial. Use the data to learn & iterate.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-6 mt-4 text-center max-w-2xl">
+                       <p class="text-gray-600">This process explains the inconsistency. A trial's success depends entirely on its immediate appeal to a <span class="font-bold">cold audience</span>, not just its posting time. Use it as a learning tool, not a guarantee of virality.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="text-center mt-16 md:mt-24 py-8 border-t border-gray-200">
+        <p class="text-gray-500">Interactive application created based on research into Instagram's 2025 algorithm.</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const chartColors = {
+            accent1: 'rgba(79, 70, 229, 0.8)',
+            accent1_bg: 'rgba(79, 70, 229, 0.2)',
+            accent2: 'rgba(16, 185, 129, 0.8)',
+            accent2_bg: 'rgba(16, 185, 129, 0.2)',
+            accent3: 'rgba(245, 158, 11, 0.8)',
+            accent3_bg: 'rgba(245, 158, 11, 0.2)',
+            textPrimary: '#1F2937',
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const wrapLabel = (label, maxWidth = 16) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine.length > 0) {
+                lines.push(currentLine);
+            }
+            return lines;
+        };
+
+        const engagementHierarchyChartCtx = document.getElementById('engagementHierarchyChart').getContext('2d');
+        new Chart(engagementHierarchyChartCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Shares (to DMs)', 'Saves', 'Watch Time (3s+)', 'Comments (Multi-word)', 'Likes'],
+                datasets: [{
+                    label: 'Relative Importance for Discovery',
+                    data: [100, 95, 90, 80, 60],
+                    backgroundColor: [chartColors.accent1, chartColors.accent2, chartColors.accent3, '#7E57C2', '#64748B'],
+                    borderWidth: 0,
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    x: { display: false, beginAtZero: true },
+                    y: { 
+                        grid: { display: false, drawBorder: false },
+                        ticks: {
+                            font: { size: 14, weight: '600' },
+                            color: chartColors.textPrimary,
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: chartColors.textPrimary,
+                        padding: 12,
+                        cornerRadius: 6,
+                        callbacks: { title: tooltipTitleCallback }
+                    }
+                }
+            }
+        });
+
+        const postingTimeChartCtx = document.getElementById('postingTimeChart').getContext('2d');
+        new Chart(postingTimeChartCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'General Engagement Level',
+                    data: [8, 9.5, 10, 9, 7.5, 6, 5.5],
+                    borderColor: chartColors.accent1,
+                    backgroundColor: chartColors.accent1_bg,
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                scales: {
+                    y: { 
+                        beginAtZero: true, 
+                        title: { display: true, text: 'Relative Engagement' }
+                    },
+                    x: { grid: { display: false } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: chartColors.textPrimary,
+                        padding: 12,
+                        cornerRadius: 6,
+                        callbacks: { title: tooltipTitleCallback }
+                    }
+                }
+            }
+        });
+
+        const surfaceData = {
+            reels: {
+                title: "Reels Signals",
+                signals: [
+                    "<strong>Watch Time:</strong> The most important signal. High relative & absolute watch time is key.",
+                    "<strong>Shares (especially DMs):</strong> A powerful indicator of value, crucial for reaching non-followers.",
+                    "<strong>User Activity:</strong> Past interactions with similar Reels, likes, saves, and comments.",
+                    "<strong>Content Quality:</strong> High-resolution video, clear audio, and originality are prioritized.",
+                    "<strong>Likelihood to watch to end:</strong> AI predicts if user will finish the video."
+                ]
+            },
+            feed: {
+                title: "Feed Signals",
+                signals: [
+                    "<strong>Relationship History:</strong> Your past interactions with the creator.",
+                    "<strong>User Activity:</strong> Your history of likes, shares, and saves on similar posts.",
+                    "<strong>Post Information:</strong> Speed of engagement, time of post, and format.",
+                    "<strong>Likelihood to engage:</strong> AI predicts if you'll spend >10s, comment, or reshare."
+                ]
+            },
+            stories: {
+                title: "Stories Signals",
+                signals: [
+                    "<strong>Viewing History:</strong> How often you view the creator's Stories.",
+                    "<strong>Engagement History:</strong> How often you interact (DM, like, reply) with their Stories.",
+                    "<strong>Relationship Closeness:</strong> Frequency of interaction across the platform.",
+                    "<strong>Likelihood to tap/reply:</strong> AI predicts your next action."
+                ]
+            },
+            explore: {
+                title: "Explore Page Signals",
+                signals: [
+                    "<strong>Post Popularity:</strong> The speed and volume of likes, comments, shares, and saves.",
+                    "<strong>User Activity in Explore:</strong> Content similar to what you've engaged with in Explore before.",
+                    "<strong>Interaction History:</strong> Your past interactions with the creator, even if you don't follow them.",
+                    "<strong>Relevance:</strong> Keywords, hashtags, and topic matching."
+                ]
+            }
+        };
+
+        const surfaceSelector = document.getElementById('surface-selector');
+        const surfaceTitle = document.getElementById('surface-title');
+        const surfaceSignals = document.getElementById('surface-signals');
+
+        function updateSurfaceInfo(surface) {
+            const data = surfaceData[surface];
+            surfaceTitle.textContent = data.title;
+            surfaceSignals.innerHTML = data.signals.map(signal => `<li>- ${signal}</li>`).join('');
+
+            surfaceSelector.querySelectorAll('.surface-button').forEach(btn => {
+                btn.classList.remove('bg-indigo-100', 'text-indigo-700');
+                if (btn.dataset.surface === surface) {
+                    btn.classList.add('bg-indigo-100', 'text-indigo-700');
+                }
+            });
+        }
+
+        surfaceSelector.addEventListener('click', (e) => {
+            const button = e.target.closest('.surface-button');
+            if (button) {
+                updateSurfaceInfo(button.dataset.surface);
+            }
+        });
+        
+        updateSurfaceInfo('reels');
+        
+        const formatData = {
+            reels: `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div>
+                        <h3 class="font-bold text-2xl mb-2 text-indigo-600">Reels: The Discovery Engine</h3>
+                        <p class="text-gray-600 mb-4">With an average reach rate of <span class="font-bold">30.81%</span>, Reels are the undisputed champion for reaching new audiences and generating impressions.</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold text-green-600">✓ Strongest For:</span> Top-of-funnel awareness, virality.</li>
+                            <li><span class="font-bold text-green-600">✓ Key Metric:</span> Watch Time & Shares.</li>
+                             <li><span class="font-bold text-red-600">✗ Weaker On:</span> Deep, conversational comments compared to carousels.</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container h-72 md:h-80">
+                        <canvas id="reelsRadarChart"></canvas>
+                    </div>
+                </div>
+            `,
+            carousels: `
+                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div>
+                        <h3 class="font-bold text-2xl mb-2 text-green-600">Carousels: The Value Driver</h3>
+                        <p class="text-gray-600 mb-4">Carousels excel at driving deeper, more meaningful engagement. They are consistently saved more often than any other format.</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold text-green-600">✓ Strongest For:</span> Education, storytelling, tutorials.</li>
+                            <li><span class="font-bold text-green-600">✓ Key Metric:</span> Saves & Comments.</li>
+                            <li><span class="font-bold text-red-600">✗ Weaker On:</span> Broad, unconnected reach compared to Reels.</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container h-72 md:h-80">
+                        <canvas id="carouselsRadarChart"></canvas>
+                    </div>
+                </div>
+            `,
+            stories: `
+                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white p-6 rounded-2xl shadow-lg">
+                    <div>
+                        <h3 class="font-bold text-2xl mb-2 text-amber-600">Stories & Images: The Community Nurturers</h3>
+                        <p class="text-gray-600 mb-4">Stories are for your existing followers. Use interactive stickers to foster relationships. Static images have very low organic reach unless they are exceptionally save-worthy.</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><span class="font-bold text-green-600">✓ Strongest For:</span> Nurturing existing community, direct interaction.</li>
+                            <li><span class="font-bold text-green-600">✓ Key Metric:</span> Replies, Sticker Taps, DMs.</li>
+                            <li><span class="font-bold text-red-600">✗ Weaker On:</span> Reaching new, non-follower audiences.</li>
+                        </ul>
+                    </div>
+                     <div class="p-8 flex items-center justify-center">
+                        <p class="text-lg text-gray-500 font-semibold">Focus on community building, not discovery.</p>
+                    </div>
+                </div>
+            `
+        };
+
+        const formatContainer = document.getElementById('format-content-container');
+        const tabButtons = document.querySelectorAll('.tab-button');
+
+        function updateFormatContent(format) {
+            formatContainer.innerHTML = formatData[format];
+            
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active', 'text-indigo-600', 'border-indigo-600', 'border-b-2');
+                if(btn.dataset.format === format) {
+                    btn.classList.add('active', 'text-indigo-600', 'border-indigo-600', 'border-b-2');
+                }
+            });
+
+            if (format === 'reels') createRadarChart('reelsRadarChart', 'Reels', [10, 7, 8, 6], chartColors.accent1, chartColors.accent1_bg);
+            if (format === 'carousels') createRadarChart('carouselsRadarChart', 'Carousels', [6, 9, 7, 9], chartColors.accent2, chartColors.accent2_bg);
+        }
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                updateFormatContent(button.dataset.format);
+            });
+        });
+
+        function createRadarChart(canvasId, label, data, color, bgColor) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Unconnected Reach', 'Saves', 'Likes', 'Comments'],
+                    datasets: [{
+                        label: label,
+                        data: data,
+                        borderColor: color,
+                        backgroundColor: bgColor,
+                        borderWidth: 2,
+                        pointBackgroundColor: color,
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: { color: '#E5E7EB' },
+                            grid: { color: '#E5E7EB' },
+                            pointLabels: { font: { size: 12, weight: '600' } },
+                            ticks: { display: false },
+                            suggestedMin: 0,
+                            suggestedMax: 10
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: chartColors.textPrimary,
+                            padding: 12,
+                            cornerRadius: 6,
+                            callbacks: { title: tooltipTitleCallback }
+                        }
+                    }
+                }
+            });
+        }
+        
+        updateFormatContent('reels');
+        
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+    });
+    </script>
+</body>
+</html>
